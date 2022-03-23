@@ -60,11 +60,18 @@ body
     content:" *";
     color: red;
 }
+.heading
+        {
+            margin-top:20px;
+            color: crimson;
+            font-family: "Times New Roman", Times, serif;
+        }
 </style>
 <body >
 <div class="heading">
 	<h2>
-		<center>Project Report Submition Form</center>
+		<center><b>Project Report Submition Form</b></center>
+		
 	</h2>
 </div>
 <div class="form1 fw-bold fs-5">
