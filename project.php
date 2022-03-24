@@ -70,7 +70,7 @@ body
 <body >
 <div class="heading">
 	<h2>
-		<center><b>Project Report Submition Form</b></center>
+		<center><b><u>Project Report Submition Form</u></b></center>
 		
 	</h2>
 </div>
@@ -78,7 +78,7 @@ body
 	<form method="POST" action="" enctype="multipart/form-data">
 		<div class="row">
 			<div class="col">
-				<label class="required">First Name(Group Leader)</label>
+				<label class="required">First Name</label>
 				<input type="text" class="form-control" placeholder="First name" aria-label="First name" name="name1" required>
 			</div>
 			<div class="col">
@@ -103,12 +103,12 @@ body
   			<input class="form-control" type="file" id="formFile" name="uploadfile" required>
 		</div>
 		<div class="mb-3">
-  			<label for="formFile" class="form-label">Upload Project PPT</label>
-  			<input class="form-control" type="file" id="formFile" name="ppt">
+  			<label for="formFile" class="form-label"><label class="required">Upload Project PPT</label></label>
+  			<input class="form-control" type="file" id="formFile" name="ppt" required>
 		</div>
-		<label for="basic-url" class="form-label">Upload Your Github URL</label>
+		<label for="basic-url" class="form-label"><label class="required">Upload Your Github URL</label></label>
 		<div class="input-group mb-3">
-			<input type="url" class="form-control" id="basic-url" aria-describedby="basic-addon3" name="url">
+			<input type="url" class="form-control" id="basic-url" aria-describedby="basic-addon3" name="url" required>
 		</div>
 		<div class="col-12" >
     		<center>

@@ -14,21 +14,29 @@
         }
         .heading
         {
-            margin-top:20px;
+            margin-top:10px;
             color: crimson;
             font-family: "Times New Roman", Times, serif;
         }
         .container
         {
-            margin-top:20px;
+            
+           margin-top:30px;
             font-family: "Times New Roman", Times, serif;
         }
+        .table
+        {
+            margin-top:0px;
+        }
+
     </style>
 <div class="heading">
 	<h2 >
 		<center><b><u>Project Report Submition Data</u></b></center>
 	</h2>
-    <div class="container mt-0">
+    </div>
+    <div class="container">
+        
         <table class="table table-stripped table-primary">
             <tr>
                 <th>First Name</th>
@@ -67,7 +75,7 @@
                             <td>
                                 <a href="<?php echo $row['pdf']; ?>">Project Report PDF</a>
                             </td>
-                            <br>
+                            
                             <td>
                                 <a href="<?php echo $row['ppt']; ?>">Project PPT</a>
                             </td>
@@ -79,6 +87,7 @@
                 }
             ?>
         </table>
+    
     </div>
 </body>
 </html>
