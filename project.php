@@ -1,8 +1,11 @@
 <?php
+    //Database Connection Include
 	include 'connection.php';
+	
 
     if(isset($_POST['submit']))
     {
+        
         $name=$_POST['name1'];
         $lastname=$_POST['lastname'];
         $email=$_POST['email'];
@@ -19,18 +22,24 @@
 		$github=$_POST['url'];
 		$query="INSERT INTO `details`(`First_Name`, `Last_Name`, `Email`, `Project_Title`, `Introduction`, `pdf`, `ppt`, `github`) VALUES ('$name','$lastname','$email','$title','$intro','$folder','$folder1','$github')";
 		$run=mysqli_query($con,$query) or die (mysqli_error());
+		
 		if($run)
 		{
 			echo "<script> alert('Data enter Succussufully');</script>";
+			
+			
 		}
 		else
 		{
             echo "<script> alert('Eroor !!!! ');</script>";			
+		
 		}
+
+		
 	}
+
+
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -92,7 +101,7 @@ body
   		</div>
   		<div class="col" style="margin-top: 5px">
     		<label for="inputEmail4" class="form-label"><label class="required">Project Title</label></label>
-    		<input type="Text" class="form-control" id="inputEmail4" placeholder="xyz" name="Title" required>
+    		<input type="Text" class="form-control" id="inputEmail4"  name="Title" required>
   		</div>
   		<div class="mb-3" style="margin-top: 5px ">
   			<label for="exampleFormControlTextarea1" class="form-label"><label class="required">Brief Introduction About Project</label></label>
