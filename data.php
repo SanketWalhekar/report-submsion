@@ -37,7 +37,9 @@
     </div>
     <div class="container">
         
-        <table class="table table-stripped table-primary">
+    <table class="table table-success table-striped">
+ 
+
             <tr>
                 <th>First Name</th>
                 <th>Last Name</th>

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
     //Database Connection Include
 	include 'connection.php';
@@ -11,36 +12,69 @@
         $email=$_POST['email'];
 		$title=$_POST['Title'];
 		$intro=$_POST['intro'];
-		$filename = $_FILES["uploadfile"]["name"];
-    	$tempname = $_FILES["uploadfile"]["tmp_name"];    
-        $folder = "image/".$filename;
-		$filename1 = $_FILES["ppt"]["name"];
+		$github=$_POST['url'];
+		$file = $_FILES["uploadfile"]["name"];
+		//For PDF
+		$len=strlen($file);//size Of File
+		$pos=strrpos($file,".");//Position of last dot
+		$ext=substr($file,$pos+1,$len);//cut extension
+		$low=strtolower($ext);//convert to Lower case
+		//For PPT
+		$file1 = $_FILES["ppt"]["name"];
+		$len1=strlen($file1);//size Of File
+		$pos1=strrpos($file1,".");//Position of last dot
+		$ext1=substr($file1,$pos1+1,$len1);//cut extension
+		$low1=strtolower($ext1);//convert to Lower case
+		
+		$allow=array('ppt','pptx');
+		if(in_array($low1,$allow))
+		{ 
+            
+			$filename1 = $_FILES["ppt"]["name"];
 		$tempname1 = $_FILES["ppt"]["tmp_name"];    
         $folder1 = "image/".$filename1;
-		move_uploaded_file($tempname, $folder);
+		// move_uploaded_file($tempname, $folder);
     	move_uploaded_file($tempname1, $folder1);
-		$github=$_POST['url'];
+		
+
+		if('pdf'==$low)
+		{
+			 $filename = $_FILES["uploadfile"]["name"];
+			$tempname = $_FILES["uploadfile"]["tmp_name"];    
+			$folder = "image/".$filename;
+			
+		move_uploaded_file($tempname, $folder); ?>
+		<div class="alert alert-success" role="alert">
+  <h5><b>Data Uploaded Succussfully<b><h5>
+</div>
+<?php
+		
+		
 		$query="INSERT INTO `details`(`First_Name`, `Last_Name`, `Email`, `Project_Title`, `Introduction`, `pdf`, `ppt`, `github`) VALUES ('$name','$lastname','$email','$title','$intro','$folder','$folder1','$github')";
 		$run=mysqli_query($con,$query) or die (mysqli_error());
-		
-		if($run)
-		{
-			echo "<script> alert('Data enter Succussufully');</script>";
-			
+
+		}else{
+			?><div class="alert alert-warning" role="alert">
+   <b>Please check the "Upload Project Report (PDF)" section , You have uploaded Wrong data. You have allowed to upload PDF file only. Your Data is not submited !!!!<b>
+</div><?php
+		} }else{?>
+		<div class="alert alert-warning" role="alert">
+  <b>Please check the "Upload Project PPT" section , You have uploaded Wrong data. You have allowed to upload PPT file only. Your Data is not submited !!!<b>
+</div> <?php 
+
+
+
+
 			
 		}
-		else
-		{
-            echo "<script> alert('Eroor !!!! ');</script>";			
 		
-		}
 
 		
 	}
+    
 
 
 ?>
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -53,7 +87,7 @@
 <style>
 body	
 {
-    background-color:#FFF0F5;
+    background-color:#FAF0E6;
 }
 .form1{
 
@@ -121,7 +155,7 @@ body
 		</div>
 		<div class="col-12" >
     		<center>
-				<button class="btn btn-danger" type="submit" name="submit">Submit form</button>
+				<button class="btn btn-primary" type="submit" name="submit">Submit form</button>
 			</center>
   		</div>
 	</div>
